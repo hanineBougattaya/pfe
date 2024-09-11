@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php'; // Connexion à la base de données
+include 'config/db.php';
 
 // Récupérer les données du formulaire
 $name = $_POST['name'];

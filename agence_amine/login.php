@@ -1,4 +1,6 @@
-<?php
+<?php 
+$title = "login"; //
+include '../includes/header.php'; 
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,15 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+
+<div class="login">
     <h2>Connexion</h2>
     <?php if (isset($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
     <form method="POST">
@@ -35,5 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="password" required>
         <button type="submit">Se connecter</button>
     </form>
-</body>
-</html>
+</div>
+
+<?php include 'includes/footer.php'; ?>

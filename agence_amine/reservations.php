@@ -1,6 +1,8 @@
 <?php
+$title = "Réservations"; 
+include 'includes/header.php'; 
 session_start();
-include 'db.php'; // Connexion à la base de données
+include 'config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
@@ -32,53 +34,42 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservations</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <h1>Auto École</h1>
-        </div>
-        <div class="links">
-            <a href="home.php">Accueil</a>
-            <a href="logout.php">Déconnexion</a>
-        </div>
+<div class="navbar">
+    <div class="logo">
+        <h1>Auto École</h1>
     </div>
-
-    <div class="container">
-        <h1>Mes Réservations</h1>
-        <?php if (isset($error_message)): ?>
-            <p style="color: red;"><?php echo htmlspecialchars($error_message); ?></p>
-        <?php elseif ($reservations): ?>
-            <table>
-                <thead>
+    <div class="links">
+        <a href="home.php">Accueil</a>
+        <a href="logout.php">Déconnexion</a>
+    </div>
+</div>
+<div class="container">
+    <h1>Mes Réservations</h1>
+    <?php if (isset($error_message)): ?>
+        <p style="color: red;"><?php echo htmlspecialchars($error_message); ?></p>
+    <?php elseif ($reservations): ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Moniteur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($reservations as $reservation): ?>
                     <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Heure</th>
-                        <th>Moniteur</th>
+                        <td><?php echo htmlspecialchars($reservation['ID_RESERVATION']); ?></td>
+                        <td><?php echo htmlspecialchars($reservation['DATE_RESERVATION']); ?></td>
+                        <td><?php echo htmlspecialchars($reservation['HEURE_RESERVATION']); ?></td>
+                        <td><?php echo htmlspecialchars($reservation['ID_MONITEUR']); ?></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($reservations as $reservation): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($reservation['ID_RESERVATION']); ?></td>
-                            <td><?php echo htmlspecialchars($reservation['DATE_RESERVATION']); ?></td>
-                            <td><?php echo htmlspecialchars($reservation['HEURE_RESERVATION']); ?></td>
-                            <td><?php echo htmlspecialchars($reservation['ID_MONITEUR']); ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php else: ?>
-            <p>Aucune réservation trouvée.</p>
-        <?php endif; ?>
-    </div>
-</body>
-</html>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>Aucune réservation trouvée.</p>
+    <?php endif; ?>
+</div>
+<?php include 'includes/footer.php'; ?>

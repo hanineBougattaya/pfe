@@ -1,6 +1,8 @@
 <?php
+$title = "Réserver un Cours"; //
+include 'includes/header.php'; 
 session_start();
-include 'db.php'; // Connexion à la base de données
+include 'config/db.php';
 
 // Vérification si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
@@ -36,62 +38,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réserver un Cours</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="bg-warning text-white text-center py-3">
-        <h1>Réserver un Cours</h1>
-        <a href="home.php" class="btn btn-light">Retour à l'accueil</a>
-    </header>
-
-    <div class="container my-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Formulaire de Réservation</h5>
-            </div>
-            <div class="card-body">
-                <form method="POST">
-                    <div class="form-group">
-                        <label for="id_cours">Choisir un Cours :</label>
-                        <select name="id_cours" id="id_cours" class="form-control" required>
-                            <option value="code">Code</option>
-                            <option value="conduite">Conduite</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date_reservation">Date de Réservation :</label>
-                        <input type="date" name="date_reservation" id="date_reservation" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="heures">Nombre d'Heures :</label>
-                        <input type="number" name="heures" id="heures" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_moniteur">Choisir un Moniteur :</label>
-                        <select name="id_moniteur" id="id_moniteur" class="form-control" required>
-                            <?php foreach ($moniteurs as $moniteur): ?>
-                                <option value="<?= htmlspecialchars($moniteur['ID_MONITEUR']); ?>">
-                                    <?= htmlspecialchars($moniteur['nom']) . ' ' . htmlspecialchars($moniteur['prenom']); ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Réserver</button>
-                </form>
-            </div>
+<header class="bg-warning text-white text-center py-3">
+    <h1>Réserver un Cours</h1>
+    <a href="home.php" class="btn btn-light">Retour à l'accueil</a>
+</header>
+<div class="container my-4">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Formulaire de Réservation</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="id_cours">Choisir un Cours :</label>
+                    <select name="id_cours" id="id_cours" class="form-control" required>
+                        <option value="code">Code</option>
+                        <option value="conduite">Conduite</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date_reservation">Date de Réservation :</label>
+                    <input type="date" name="date_reservation" id="date_reservation" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="heures">Nombre d'Heures :</label>
+                    <input type="number" name="heures" id="heures" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_moniteur">Choisir un Moniteur :</label>
+                    <select name="id_moniteur" id="id_moniteur" class="form-control" required>
+                        <?php foreach ($moniteurs as $moniteur): ?>
+                            <option value="<?= htmlspecialchars($moniteur['ID_MONITEUR']); ?>">
+                                <?= htmlspecialchars($moniteur['nom']) . ' ' . htmlspecialchars($moniteur['prenom']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Réserver</button>
+            </form>
         </div>
     </div>
-
-    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+</div>
+<?php include 'includes/footer.php'; ?>

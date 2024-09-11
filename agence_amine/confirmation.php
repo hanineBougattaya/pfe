@@ -1,7 +1,8 @@
 <?php
+$title = "Confirmation de Réservation"; 
+include 'includes/header.php'; 
 session_start();
-include 'db.php'; // Connexion à la base de données
-
+include 'config/db.php';
 // Vérification si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
@@ -36,40 +37,23 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation de Réservation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="bg-warning text-white text-center py-3">
-        <h1>Confirmation de Réservation</h1>
-        <a href="home.php" class="btn btn-light">Retour à l'accueil</a>
-    </header>
-
-    <div class="container my-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Détails de la Réservation</h5>
-            </div>
-            <div class="card-body">
-                <p><strong>Cours Réservé :</strong> <?= htmlspecialchars($reservation['NOM_COURS']); ?></p>
-                <p><strong>Date de Réservation :</strong> <?= htmlspecialchars($reservation['DATE_RESERVATION']); ?></p>
-                <p><strong>Nombre d'Heures :</strong> <?= htmlspecialchars($reservation['HEURES']); ?></p>
-                <p><strong>Moniteur :</strong> <?= htmlspecialchars($reservation['MONITEUR_NOM']) . ' ' . htmlspecialchars($reservation['MONITEUR_PRENOM']); ?></p>
-                <p><strong>Prix Total :</strong> <?= htmlspecialchars($reservation['PRIX_TOTAL']); ?> DT</p>
-                <a href="home.php" class="btn btn-primary">Retour à l'accueil</a>
-            </div>
+<header class="bg-warning text-white text-center py-3">
+    <h1>Confirmation de Réservation</h1>
+    <a href="home.php" class="btn btn-light">Retour à l'accueil</a>
+</header>
+<div class="container my-4">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Détails de la Réservation</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Cours Réservé :</strong> <?= htmlspecialchars($reservation['NOM_COURS']); ?></p>
+            <p><strong>Date de Réservation :</strong> <?= htmlspecialchars($reservation['DATE_RESERVATION']); ?></p>
+            <p><strong>Nombre d'Heures :</strong> <?= htmlspecialchars($reservation['HEURES']); ?></p>
+            <p><strong>Moniteur :</strong> <?= htmlspecialchars($reservation['MONITEUR_NOM']) . ' ' . htmlspecialchars($reservation['MONITEUR_PRENOM']); ?></p>
+            <p><strong>Prix Total :</strong> <?= htmlspecialchars($reservation['PRIX_TOTAL']); ?> DT</p>
+            <a href="home.php" class="btn btn-primary">Retour à l'accueil</a>
         </div>
     </div>
-
-    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+</div>
+<?php include 'includes/footer.php'; ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php'; // Connexion à la base de données
+include 'config/db.php';
 
 // Vérification si l'utilisateur est connecté et est un administrateur
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
