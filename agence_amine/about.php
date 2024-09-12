@@ -1,14 +1,14 @@
 <?php
 $title = "À propos de l'Agence Ahmed"; 
 include 'includes/header.php'; 
-?>
+include 'includes/navbar.php'; 
 
-<?php include 'includes/navbar.php'; ?>
+?>
 
 <header>
     Agence Ahmed - Spécialiste en Apprentissage de la Moto
 </header>
-<div class="container">
+<main class="container">
     <h1>À propos de l'Agence Ahmed</h1>
     <p>
         Bienvenue à l'Agence Ahmed, votre auto-école spécialisée dans l'apprentissage de la conduite de moto. Depuis plusieurs années, nous accompagnons nos élèves avec passion et professionnalisme pour les aider à maîtriser la conduite sur deux roues et obtenir leur permis moto en toute sécurité.
@@ -37,5 +37,5 @@ include 'includes/header.php';
             </p>
         </div>
     </div>
-</div>
+</main>
 <?php include 'includes/footer.php'; ?>

@@ -1,9 +1,15 @@
-<?php 
+<?php
 // Démarrer la session
-session_start();
-
 $title = "Connexion";
-include 'includes/header.php'; 
+include '../includes/header.php';
+include '../includes/navbar.php'; 
+
+// Vérifier si l'utilisateur est déjà connecté
+if (isset($_SESSION['user_id'])) {
+    // Redirection vers la page d'accueil si l'utilisateur est déjà connecté
+    header('Location: /index.php');
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = $_POST['login'];
@@ -16,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['role'] = 'admin'; // Rôle défini manuellement
         
         // Redirection vers la page dashboard après connexion réussie
-        header('Location: dashboard.php');
+        header('Location: /dashboard.php');
         exit; // Terminer le script après redirection
     } else {
         // Message d'erreur si les identifiants sont incorrects
@@ -39,4 +45,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

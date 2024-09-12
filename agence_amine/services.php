@@ -1,15 +1,16 @@
 <?php
 $title = "services"; //
 include 'includes/header.php'; 
+include 'includes/navbar.php'; 
+
 ?>
 
-<?php include 'includes/navbar.php'; ?>
 
-<div class="hero">
+<header class="text-center mb-4">
     <h1>Bienvenue chez Auto École</h1>
     <p>Découvrez nos services de formation et passez votre permis avec les meilleurs.</p>
-</div>
-<div class="container">
+</header>
+<main class="container">
     <h2 class="section-title">Nos Services</h2>
     <div class="section-content">
         <p>Nous offrons une gamme complète de services pour vous aider à réussir votre permis de conduire :</p>
@@ -29,5 +30,5 @@ include 'includes/header.php';
     <a href="reserver_cours.php" class="btn btn-primary">Réserver</a>
         </form>
     </div>
-</div>
+</main>
 <?php include 'includes/footer.php'; ?>

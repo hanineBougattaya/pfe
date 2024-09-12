@@ -2,6 +2,8 @@
 $title = "Contact - Auto École";
 include 'includes/header.php'; 
 include 'config/db.php';
+include 'includes/navbar.php'; 
+
 // Initialiser les variables
 $message_sent = false;
 
@@ -25,10 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<?php include 'includes/navbar.php'; ?>
 
-<div class="container">
-    <h1>Contactez-Nous</h1>
+<header class="text-center mb-4">
+        <h1 class="display-4">Contact</h1>
+</header>
+<main class="container">
     <?php if ($message_sent): ?>
         <div class="alert alert-success" role="alert">
             Votre message a été envoyé avec succès ! Nous vous contacterons dès que possible.
@@ -47,5 +50,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit">Envoyer</button>
         </form>
     <?php endif; ?>
-</div>
+    </main>
 <?php include 'includes/footer.php'; ?>

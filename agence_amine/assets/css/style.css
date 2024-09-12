@@ -3,38 +3,60 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif; /* Utilise une police moderne */
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    height: 100%;
 }
 
 body {
-    background-color: #f0f4f8; /* Couleur de fond douce pour une interface moderne */
-    color: #333; /* Couleur de texte principale */
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assure que le corps occupe au moins toute la hauteur de la fenêtre */
+    margin: 0; /* Supprime les marges par défaut */
+    color: #333;
     font-size: 16px;
     line-height: 1.6;
-    min-height:100vh;
 }
 
+/* Header Styles */
 header {
-    background-color: #4a90e2; /* Couleur d'en-tête élégante */
-    color: white;
-    padding: 20px 0;
+    background-color: #ffc107;
+    color: #ffffff;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile pour donner de la profondeur */
+    width: 100%;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    letter-spacing: 1.5px;
+/* Navigation */
+
+/* Style pour la navigation */
+nav .nav-pills .nav-link {
+    border-radius: 20px; /* Bordures arrondies des éléments de navigation */
+    padding: 10px 20px; /* Espacement intérieur des éléments de navigation */
+    margin: 0 5px; /* Espacement entre les éléments de navigation */
+    color: white;
 }
 
-a {
-    color: #4a90e2;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
+nav .nav-pills .nav-link.active {
+    background-color: #ffc107;
 }
 
-a:hover {
-    color: #2a6cb8;
+/* Couleur de survol des éléments de navigation */
+nav .nav-pills .nav-link:hover {
+    background-color: #ffffff; /* Couleur de fond au survol */
+    color: #ffc107;
+    scale: 1.1;
+}
+
+
+/* Wrapper pour le contenu principal */
+main {
+    flex: 1; /* Prend tout l'espace restant pour pousser le footer vers le bas */
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -42,28 +64,27 @@ a:hover {
 form {
     display: flex;
     flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
 }
 
 label {
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 1.1rem;
-    color: #4a90e2;
+    color: #333;
 }
 
-.login {
-    height: 50%;
-    width:  50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+input {
+    width: 50%;
 }
 
 input, select {
     padding: 12px;
     margin-bottom: 20px;
     border: 2px solid #ddd;
+    /* width: 40%; */
     border-radius: 6px;
     font-size: 1rem;
     transition: all 0.3s ease-in-out;
@@ -76,8 +97,8 @@ input:focus, select:focus {
 }
 
 button {
-    background-color: #4a90e2;
-    color: white;
+    background-color: #ffc107;
+    color: #ffffff;
     padding: 12px 20px;
     border: none;
     border-radius: 6px;
@@ -87,106 +108,7 @@ button {
 }
 
 button:hover {
-    background-color: #357ab8;
-}
-
-/* Navigation */
-nav {
-    background-color: #333;
-    padding: 15px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: white;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-}
-
-nav ul li a:hover {
-    border-bottom: 2px solid #4a90e2;
-}
-
-.footer {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    p {
-        height: 100%;
-        margin-bottom: 0px !important;
-        padding: 10px;
-    }
-}
-
-
-header {
-    background-color: #ffc107; /* Jaune pour l'arrière-plan */
-    color: #ffffff; /* Blanc pour le texte */
-    padding: 20px;
-    text-align: center;
-}
-header h1 {
-    font-size: 2.5rem;
-    color: #ffffff; /* Blanc pour le titre */
-}
-.container {
-    height: 100vh;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: justify center;
-    align-items: center;
-    padding: 20px;
-}
-.form-group {
-    margin-bottom: 1.5rem;
-}
-label {
-    display: block;
-    margin-bottom: .5rem;
-    font-weight: bold;
-}
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: .375rem .75rem;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-}
-button {
-    background-color: #ffc107; /* Jaune */
-    color: #ffffff; /* Blanc */
-    border: none;
-    padding: .5rem 1rem;
-    border-radius: .25rem;
-    font-size: 1rem;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #e0a800; /* Jaune plus foncé au survol */
-}
-.message {
-    color: green;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+    background-color: #e0a800;
 }
 
 /* Table Styles */
@@ -194,6 +116,8 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    overflow-x: auto; /* Ajouté pour le responsive */
+    display: block; /* Pour permettre le défilement horizontal sur mobile */
 }
 
 table th, table td {
@@ -203,8 +127,8 @@ table th, table td {
 }
 
 table th {
-    background-color: #4a90e2;
-    color: white;
+    background-color: #ffc107;
+    color: #ffffff;
 }
 
 table tr:hover {
@@ -212,297 +136,30 @@ table tr:hover {
 }
 
 
-
-
-header {
-    background-color: #ffc107; /* Jaune pour l'arrière-plan */
-    color: #ffffff; /* Blanc pour le texte */
-    padding: 20px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    color: #ffffff; /* Blanc pour le titre */
-}
-
-nav ul {
-    padding: 0;
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
-nav ul li a {
-    color: #ffffff; /* Blanc pour les liens */
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    color: #212529; /* Gris foncé pour les liens au survol */
-}
-
-main {
-    padding: 20px;
-}
-
-.welcome-card {
-    background-color: #f8f9fa; /* Gris clair pour le fond de la carte */
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ombre légère */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
-    text-align: center;
-    opacity: 0;
-}
-
-.welcome-card:hover {
-    transform: scale(1.05); /* Effet de zoom au survol */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Ombre plus marquée au survol */
-}
-
-.welcome-card p {
-    font-size: 1.5rem; /* Taille du texte */
-    font-weight: bold; /* Texte en gras */
-    color: #343a40; /* Gris foncé pour le texte */
-    line-height: 1.6; /* Hauteur de ligne pour un meilleur espacement */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Ombre légère pour le texte */
-}
-
-.card-table {
-    margin-top: 30px;
-    opacity: 0;
-}
-
-.card-table table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.card-table th, .card-table td {
-    padding: 12px;
-    border: 1px solid #dee2e6;
-    text-align: left;
-}
-
-.card-table th {
-    background-color: #343a40; /* Gris foncé pour les en-têtes de tableau */
-    color: #ffffff; /* Blanc pour le texte */
-}
-
-.card-table td {
-    background-color: #ffffff; /* Blanc pour les cellules */
-}
-
-.card-table a {
-    color: #007bff; /* Bleu pour les liens */
-}
-
-.card-table a:hover {
-    color: #0056b3; /* Bleu plus foncé au survol */
-}
-
-.btn {
-    opacity: 0;
-    transition: opacity 1.5s ease;
-}
-
-
-.navbar {
-    background-color: #343a40;
-}
-.navbar a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-.navbar a:hover {
-    background-color: #495057;
-}
-.navbar .navbar-nav .nav-item:last-child {
-    margin-left: auto;
-}
-.hero {
-    background-color: #ffc107;
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-.hero p {
-    font-size: 1.25rem;
-}
-
-.section-title {
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #343a40;
-}
-.section-content {
-    margin-bottom: 30px;
-}
-
-.reservation-form {
-    margin-top: 20px;
-}
-.form-group label {
-    font-weight: bold;
-}
-
-button {
-    background-color: #ffc107; /* Jaune */
-    color: #ffffff; /* Blanc */
-    border: none;
-    padding: .5rem 1rem;
-    border-radius: .25rem;
-    font-size: 1rem;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #e0a800; /* Jaune plus foncé au survol */
-}
-.message {
-    color: green;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-.navbar {
-    background-color: #343a40;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.navbar a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-}
-.navbar a:hover {
-    background-color: #495057;
-}
-
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.form-container label {
-    display: block;
-    margin-bottom: 10px;
-    color: #333;
-}
-.form-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-.form-container button {
-    background-color: #ffc107;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.form-container button:hover {
-    background-color: #e0a800;
-}
-
-header {
-    background-color: #ffc107; /* Jaune pour l'arrière-plan */
-    color: #ffffff; /* Blanc pour le texte */
-    padding: 20px;
-    text-align: center;
-}
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-nav ul {
-    padding: 0;
-    list-style: none;
-    background-color: #343a40; /* Gris foncé pour la barre de navigation */
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-nav ul li {
-    display: inline;
-    margin-right: 15px;
-}
-nav ul li a {
-    color: #ffffff; /* Blanc pour les liens */
-    text-decoration: none;
-    padding: 5px 10px;
-}
-nav ul li a:hover {
-    color: #ffc107; /* Jaune pour les liens au survol */
-    background-color: #212529; /* Changement de couleur au survol */
-    border-radius: 5px;
-}
-
 .card {
-    opacity: 0; /* Ajout d'une animation de fade-in */
-    transition: opacity 1s ease-in;
-}
-.card-body {
-    animation: fadeIn 1s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.9); /* Opacité pour rendre le formulaire plus lisible */
 }
 
-.sticker {
-    position: absolute;
-    z-index: 1;
-    width: 100px; /* Ajuster la taille si nécessaire */
-    height: auto;
-}
-.sticker.top-left {
-    top: 10px;
-    left: 10px;
-}
-.sticker.top-right {
-    top: 10px;
-    right: 10px;
-}
-.sticker.bottom-left {
-    bottom: 10px;
-    left: 10px;
-}
-.sticker.bottom-right {
-    bottom: 10px;
-    right: 10px;
-}
-.sticker.center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0;
 }
 
 /* Responsive Design */
-@media only screen and (max-width: 768px) {
+
+/* Smartphones (Portrait et Paysage) */
+@media only screen and (max-width: 600px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     nav ul {
@@ -510,7 +167,65 @@ nav ul li a:hover {
         text-align: center;
     }
 
+    nav ul li {
+        margin: 10px 0; /* Espacement entre les éléments de navigation */
+    }
+
     .container {
         width: 95%;
+        padding: 10px;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    input, select {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablettes (Paysage) */
+@media only screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .container {
+        width: 90%;
+        padding: 15px;
+        height: 100%;
+    }
+}
+
+/* Petits Écrans et Desktop */
+@media only screen and (max-width: 992px) {
+    .container {
+        width: 85%;
+        padding: 20px;
+        height: 100%;
+    }
+
+    table th, table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Grand Écrans et Desktop */
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 }
