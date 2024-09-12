@@ -1,17 +1,14 @@
 <?php
 $title = "Ajouter un Véhicule"; 
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
+include 'includes/navbar.php'; 
+
 // Assurez-vous que l'utilisateur est connecté et a le rôle approprié
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header('Location: login.php');
     exit;
 }
-
-// Inclure le fichier de connexion à la base de données
-include 'db.php';
-
 // Initialiser les variables
 $success = '';
 $error = '';
@@ -43,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-   
+
 <div class="container">
     <h1>Ajouter un Moto</h1>
     <div class="form-container">

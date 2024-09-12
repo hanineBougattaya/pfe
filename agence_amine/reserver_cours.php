@@ -1,7 +1,6 @@
 <?php
 $title = "Réserver un Cours"; //
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
 
 // Vérification si l'utilisateur est connecté
@@ -38,9 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
+<?php include 'includes/navbar.php'; ?>
+
+
 <header class="bg-warning text-white text-center py-3">
     <h1>Réserver un Cours</h1>
-    <a href="home.php" class="btn btn-light">Retour à l'accueil</a>
+    <a href="index.php" class="btn btn-light">Retour à l'accueil</a>
 </header>
 <div class="container my-4">
     <div class="card">

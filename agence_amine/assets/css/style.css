@@ -11,6 +11,7 @@ body {
     color: #333; /* Couleur de texte principale */
     font-size: 16px;
     line-height: 1.6;
+    min-height:100vh;
 }
 
 header {
@@ -36,15 +37,6 @@ a:hover {
     color: #2a6cb8;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Carte élégante */
-}
 
 /* Form Styles */
 form {
@@ -60,14 +52,12 @@ label {
 }
 
 .login {
-    height: 50vh;
-    width:  50vw;
-    padding: 25vh 0 25vw  0;
+    height: 50%;
+    width:  50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: brown;
 }
 
 input, select {
@@ -126,20 +116,17 @@ nav ul li a:hover {
     border-bottom: 2px solid #4a90e2;
 }
 
-/* Footer */
 .footer {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 0;
+
     padding: 10px;
     background-color: #333;
     color: white;
     text-align: center;
     p {
-        position: relative;
         height: 100%;
         margin-bottom: 0px !important;
         padding: 10px;
@@ -158,6 +145,12 @@ header h1 {
     color: #ffffff; /* Blanc pour le titre */
 }
 .container {
+    height: 100vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: justify center;
+    align-items: center;
     padding: 20px;
 }
 .form-group {
@@ -219,9 +212,7 @@ table tr:hover {
 }
 
 
-body {
-    background-color: #ffffff; /* Blanc pour l'arrière-plan */
-}
+
 
 header {
     background-color: #ffc107; /* Jaune pour l'arrière-plan */
@@ -318,12 +309,7 @@ main {
     transition: opacity 1.5s ease;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-}
+
 .navbar {
     background-color: #343a40;
 }
@@ -351,9 +337,7 @@ body {
 .hero p {
     font-size: 1.25rem;
 }
-.container {
-    padding: 40px 20px;
-}
+
 .section-title {
     margin-bottom: 30px;
     font-size: 2rem;
@@ -362,15 +346,7 @@ body {
 .section-content {
     margin-bottom: 30px;
 }
-.footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+
 .reservation-form {
     margin-top: 20px;
 }
@@ -413,13 +389,7 @@ button:hover {
 .navbar a:hover {
     background-color: #495057;
 }
-.container {
-    padding: 20px;
-}
-.container h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
+
 .form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -453,19 +423,7 @@ button:hover {
 .form-container button:hover {
     background-color: #e0a800;
 }
-.footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-body {
-    background-color: #ffffff; /* Blanc pour l'arrière-plan */
-    overflow: hidden;
-}
+
 header {
     background-color: #ffc107; /* Jaune pour l'arrière-plan */
     color: #ffffff; /* Blanc pour le texte */
@@ -498,9 +456,7 @@ nav ul li a:hover {
     background-color: #212529; /* Changement de couleur au survol */
     border-radius: 5px;
 }
-.container {
-    padding: 20px;
-}
+
 .card {
     opacity: 0; /* Ajout d'une animation de fade-in */
     transition: opacity 1s ease-in;

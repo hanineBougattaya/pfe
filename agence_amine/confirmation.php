@@ -39,7 +39,7 @@ try {
 
 <header class="bg-warning text-white text-center py-3">
     <h1>Confirmation de Réservation</h1>
-    <a href="home.php" class="btn btn-light">Retour à l'accueil</a>
+    <a href="index.php" class="btn btn-light">Retour à l'accueil</a>
 </header>
 <div class="container my-4">
     <div class="card">
@@ -52,7 +52,7 @@ try {
             <p><strong>Nombre d'Heures :</strong> <?= htmlspecialchars($reservation['HEURES']); ?></p>
             <p><strong>Moniteur :</strong> <?= htmlspecialchars($reservation['MONITEUR_NOM']) . ' ' . htmlspecialchars($reservation['MONITEUR_PRENOM']); ?></p>
             <p><strong>Prix Total :</strong> <?= htmlspecialchars($reservation['PRIX_TOTAL']); ?> DT</p>
-            <a href="home.php" class="btn btn-primary">Retour à l'accueil</a>
+            <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
         </div>
     </div>
 </div>

@@ -1,8 +1,9 @@
 <?php
 $title = "Ajouter un Apprenant"; 
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
+include 'includes/navbar.php'; 
+
 
 // Vérification si l'utilisateur est connecté et est un administrateur
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
@@ -77,5 +78,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </div>
 <!-- Images décoratives -->
-<img src="images/image1.jpg" alt="Sticker" class="sticker top-left">
+<img src="assets/images/image1.jpg" alt="Sticker" class="sticker top-left">
 <?php include 'includes/footer.php'; ?>

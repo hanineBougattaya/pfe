@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<?php include 'includes/navbar.php'; ?>
 
 <header>
     <h1>Modifier l'Apprenant</h1>

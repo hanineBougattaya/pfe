@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<?php include 'includes/navbar.php'; ?>
 
 <div class="container">
     <h1>Contactez-Nous</h1>

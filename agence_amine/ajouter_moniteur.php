@@ -1,7 +1,6 @@
 <?php
 $title = "Ajouter Moniteur"; 
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
 
 // Vérification si l'utilisateur est connecté et est un administrateur
@@ -31,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Redirection ou message de succès
 }
 ?>
-
+<?php include 'includes/navbar.php'; ?>
 <header>
     <h1>Ajouter un Moniteur</h1>
     <a href="moniteurs.php" class="btn btn-light">Retour à la liste des moniteurs</a>

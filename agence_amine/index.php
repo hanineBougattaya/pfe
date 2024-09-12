@@ -3,23 +3,7 @@ $title = "Accueil - Auto École"; //
 include 'includes/header.php'; 
 ?>
 
-
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">Auto École</a>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="services.php">Nos Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.php">À Propos</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="login.php"><i class="fas fa-user"></i> Connexion </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<?php include 'includes/navbar.php'; ?>
 <div class="hero">
     <h1>Bienvenue chez Auto École</h1>
     <p>Découvrez nos services de formation et passez votre permis avec les meilleurs.</p>

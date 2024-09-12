@@ -1,8 +1,8 @@
 <?php
 $title = "Gestion des Apprenants"; 
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
+include 'includes/navbar.php'; 
 
 // Vérification si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
@@ -21,6 +21,7 @@ if (isset($_GET['delete'])) {
 // Récupérer la liste des apprenants
 $apprenants = $pdo->query("SELECT * FROM apprenant")->fetchAll();
 ?>
+
 <header>
     <h1 class="display-4">Gérer les Apprenants</h1>
 </header>

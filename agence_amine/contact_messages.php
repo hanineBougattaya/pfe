@@ -1,7 +1,6 @@
 <?php
 $title = "Messages de Contact - Tableau de Bord"; 
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
 
 // Vérifier si l'utilisateur est connecté et s'il est administrateur
@@ -14,6 +13,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 $query = $pdo->query("SELECT * FROM messages ORDER BY date DESC");
 $messages = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
+<?php include 'includes/navbar.php'; ?>
 
 <header class="text-center">
     <h1>Messages de Contact</h1>

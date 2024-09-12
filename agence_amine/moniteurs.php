@@ -1,7 +1,6 @@
 <?php
 $title = "Gérer les Moniteurs"; //
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
@@ -25,6 +24,7 @@ try {
     exit;
 }
 ?>
+<?php include 'includes/navbar.php'; ?>
 
 <header class="text-center">
     <h1>Gérer les Moniteurs</h1>

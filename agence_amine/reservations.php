@@ -1,7 +1,6 @@
 <?php
 $title = "Réservations"; 
 include 'includes/header.php'; 
-session_start();
 include 'config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
@@ -34,15 +33,7 @@ try {
 }
 ?>
 
-<div class="navbar">
-    <div class="logo">
-        <h1>Auto École</h1>
-    </div>
-    <div class="links">
-        <a href="home.php">Accueil</a>
-        <a href="logout.php">Déconnexion</a>
-    </div>
-</div>
+<?php include 'includes/navbar.php'; ?>
 <div class="container">
     <h1>Mes Réservations</h1>
     <?php if (isset($error_message)): ?>
