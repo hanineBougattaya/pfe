@@ -64,7 +64,7 @@ try {
                                 <td><?= htmlspecialchars($vehicule['Modele']); ?></td>
                                 <td><?= htmlspecialchars($vehicule['Immatriculation']); ?></td>
                                 <td>
-                                    <a href="/dashboard/vehicules/modifier_vehicule.php?id=<?= urlencode($vehicule['ID_VEHICULE']); ?>" class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="/dashboard/vehicules/modifier_vehicule.php?id=<?= urlencode($vehicule['ID_VEHICULE']); ?>" class="btn btn-warning text-white  btn-sm">Modifier</a>
                                     <a href="/dashboard/vehicules.php?delete=<?= urlencode($vehicule['ID_VEHICULE']); ?>" onclick="return confirm('Êtes-vous sûr ?')" class="btn btn-danger btn-sm">Supprimer</a>
                                 </td>
                             </tr>

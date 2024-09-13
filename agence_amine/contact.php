@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <textarea id="message" name="message" class="form-control form-control-lg" rows="6" required></textarea>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+                    <button type="submit" class="btn btn-warning text-white  btn-lg">Envoyer</button>
                 </form>
             <?php endif; ?>
             <div class="text-center mt-4">
-                <a href="reserver_cours.php" class="btn btn-primary btn-lg">Réserver votre premier cours</a>
+                <a href="reserver_cours.php" class="btn btn-warning text-white  btn-lg">Réserver votre premier cours</a>
             </div>
         </div>
     </div>

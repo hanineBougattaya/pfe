@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include '../../config/db.php';
 
@@ -13,10 +13,10 @@ $id_reservation = $_GET['id'] ?? null;
 
 if ($id_reservation) {
     // Mettre à jour la réservation pour indiquer qu'elle a été rejetée
-    $query = $pdo->prepare("UPDATE reservation SET STATUT = 'rejetée' WHERE ID_RESERVATION = ?");
+    $query = $pdo->prepare("UPDATE reservation SET STATUT = 'Refusée' WHERE ID_RESERVATION = ?");
     $query->execute([$id_reservation]);
 }
 
-header('Location: dashboard.php'); // Redirection après traitement
+header('Location: /dashboard/reservations.php'); // Redirection après traitement
 exit;
 ?>

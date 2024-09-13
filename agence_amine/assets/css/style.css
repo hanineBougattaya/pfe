@@ -107,6 +107,12 @@ button {
     transition: background-color 0.3s ease;
 }
 
+.btn-group {
+    display: flex;
+    gap: 0.5rem; /* Ajustez l'espacement entre les boutons */
+}
+
+
 button:hover {
     background-color: #e0a800;
 }

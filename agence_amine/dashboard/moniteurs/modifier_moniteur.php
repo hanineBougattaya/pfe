@@ -41,8 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $adresse = trim($_POST['adresse']);
     $telephone = trim($_POST['telephone']);
     $email = trim($_POST['email']);
-    $login = trim($_POST['login']);
-    $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null;
+    $date_embauche = $_POST['date_embauche'];
 
     // Validation des champs
     if (!preg_match("/^[a-zA-Z\s]+$/", $nom)) {
@@ -70,18 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($adresse != ($moniteur['Adresse'] ?? '')) $modifications[] = 'adresse';
         if ($telephone != ($moniteur['Telephone'] ?? '')) $modifications[] = 'téléphone';
         if ($email != ($moniteur['Email'] ?? '')) $modifications[] = 'email';
-        if ($login != ($moniteur['Login'] ?? '')) $modifications[] = 'login';
+        if ($date_embauche != ($moniteur['date_embauche'] ?? '')) $modifications[] = 'date d\'embauche';
 
         // Préparer la requête de mise à jour
         if (!empty($modifications)) {
-            $sql = "UPDATE moniteur SET Nom = ?, Prenom = ?, Date_Naissance = ?, Adresse = ?, Telephone = ?, Email = ?, Login = ?";
-            $params = [$nom, $prenom, $date_naissance, $adresse, $telephone, $email, $login];
-
-            // Ajouter la colonne Password à la mise à jour si un nouveau mot de passe est fourni
-            if ($password) {
-                $sql .= ", Password = ?";
-                $params[] = $password;
-            }
+            $sql = "UPDATE moniteur SET Nom = ?, Prenom = ?, Date_Naissance = ?, Adresse = ?, Telephone = ?, Email = ?, date_embauche = ?";
+            $params = [$nom, $prenom, $date_naissance, $adresse, $telephone, $email, $date_embauche];
 
             $sql .= " WHERE ID_MONITEUR = ?";
             $params[] = $id;
@@ -146,14 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="email" name="email" id="email" class="form-control" value="<?= htmlspecialchars($moniteur['Email'] ?? '') ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="login">Login :</label>
-                    <input type="text" name="login" id="login" class="form-control" value="<?= htmlspecialchars($moniteur['Login'] ?? '') ?>" required>
+                    <label for="date_embauche">Date d'Embauche :</label>
+                    <input type="date" name="date_embauche" id="date_embauche" class="form-control" value="<?= htmlspecialchars($moniteur['date_embauche'] ?? '') ?>" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Nouveau Mot de Passe (laisser vide pour ne pas changer) :</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg w-100">Enregistrer les modifications</button>
+                <button type="submit" class="btn btn-warning text-white  btn-lg w-100">Enregistrer les modifications</button>
             </form>
         </div>
     </div>

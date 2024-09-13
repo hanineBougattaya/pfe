@@ -44,8 +44,6 @@ try {
                         <th>ID</th>
                         <th>Nom</th>
                         <th>Prénom</th>
-                        <th>Login</th>
-                        <th>Password</th>
                         <th>Date de Naissance</th>
                         <th>Adresse</th>
                         <th>Téléphone</th>
@@ -64,14 +62,12 @@ try {
                                 <td><?= htmlspecialchars($moniteur['ID_MONITEUR']); ?></td>
                                 <td><?= htmlspecialchars($moniteur['Nom']); ?></td>
                                 <td><?= htmlspecialchars($moniteur['Prenom']); ?></td>
-                                <td><?= htmlspecialchars($moniteur['login']); ?></td>
-                                <td><?= htmlspecialchars($moniteur['password']); ?></td>
                                 <td><?= htmlspecialchars($moniteur['Date_Naissance']); ?></td>
                                 <td><?= htmlspecialchars($moniteur['Adresse']); ?></td>
                                 <td><?= htmlspecialchars($moniteur['Telephone']); ?></td>
                                 <td><?= htmlspecialchars($moniteur['Email']); ?></td>
                                 <td>
-                                    <a href="/dashboard/moniteurs/modifier_moniteur.php?id=<?= urlencode($moniteur['ID_MONITEUR']); ?>" class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="/dashboard/moniteurs/modifier_moniteur.php?id=<?= urlencode($moniteur['ID_MONITEUR']); ?>" class="btn btn-warning text-white  btn-sm">Modifier</a>
                                     <a href="/dashboard/moniteurs.php?delete=<?= urlencode($moniteur['ID_MONITEUR']); ?>" onclick="return confirm('Êtes-vous sûr ?')" class="btn btn-danger btn-sm">Supprimer</a>
                                 </td>
                             </tr>

@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="password" class="form-label">Nouveau Mot de Passe (laisser vide pour ne pas changer) :</label>
             <input type="password" name="password" id="password" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg w-100">Enregistrer les modifications</button>
+        <button type="submit" class="btn btn-warning text-white  btn-lg w-100">Enregistrer les modifications</button>
     </form>
     </main>
 

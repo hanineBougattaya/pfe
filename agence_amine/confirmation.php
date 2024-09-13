@@ -1,14 +1,9 @@
 <?php
 $title = "Confirmation de Réservation"; 
-include '../../includes/header.php'; 
-include '../../includes/navbar.php'; 
-include '../../config/db.php';
+include 'includes/header.php'; 
+include 'includes/navbar.php'; 
+include 'config/db.php';
 // Vérification si l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
-    header('Location: /auth/login.php');
-    exit;
-}
-
 
 // Vérification de la présence de l'ID de réservation dans l'URL
 if (!isset($_GET['id_reservation'])) {
@@ -42,7 +37,7 @@ try {
     <h1>Confirmation de Réservation</h1>
     <a href="/index.php" class="btn btn-light">Retour à l'accueil</a>
 </header>
-<div class="container my-4">
+<main class="container my-4">
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Détails de la Réservation</h5>
@@ -53,8 +48,7 @@ try {
             <p><strong>Nombre d'Heures :</strong> <?= htmlspecialchars($reservation['HEURES']); ?></p>
             <p><strong>Moniteur :</strong> <?= htmlspecialchars($reservation['MONITEUR_NOM']) . ' ' . htmlspecialchars($reservation['MONITEUR_PRENOM']); ?></p>
             <p><strong>Prix Total :</strong> <?= htmlspecialchars($reservation['PRIX_TOTAL']); ?> DT</p>
-            <a href="index.php" class="btn btn-primary">Retour à l'accueil</a>
         </div>
     </div>
-</div>
-<?php include '../../includes/footer.php'; ?>
+</main>
+<?php include 'includes/footer.php'; ?>

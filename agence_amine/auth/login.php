@@ -1,7 +1,7 @@
 <?php
 $title = "Connexion"; 
 include '../includes/header.php'; 
-include '../config/db.php'; // Connexion à la base de données
+include '../config/db.php'; // Connexion à la base de données si nécessaire
 include '../includes/navbar.php'; // Navigation principale
 
 // Initialiser les variables
@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Vérification statique des identifiants pour l'admin
     if ($login === 'hanine1' && $password === '1234') {
-        // Création de la session pour l'utilisateur
+        // Création de la session pour l'admin
+        session_start(); // Assurez-vous que les sessions sont bien démarrées
         $_SESSION['user_id'] = 1; // ID arbitraire de l'admin
         $_SESSION['role'] = 'admin'; // Rôle admin
         
@@ -22,38 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: /dashboard.php');
         exit; // Terminer le script après redirection
     } else {
-        // Vérification dans la base de données pour les apprenants
-        $stmt = $pdo->prepare("SELECT * FROM apprenant WHERE login = ?");
-        $stmt->execute([$login]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$user || !password_verify($password, $user['password'])) {
-            // Vérification dans la base de données pour les moniteurs si l'utilisateur n'est pas un apprenant
-            $stmt = $pdo->prepare("SELECT * FROM moniteur WHERE login = ?");
-            $stmt->execute([$login]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (!$user || !password_verify($password, $user['password'])) {
-                // Message d'erreur si les identifiants sont incorrects
-                $error = "Login ou mot de passe incorrect.";
-            } else {
-                // Création de la session pour le moniteur
-                $_SESSION['user_id'] = $user['ID_MONITEUR']; // ID du moniteur
-                $_SESSION['role'] = 'moniteur'; // Rôle
-                
-                // Redirection vers la page dashboard après connexion réussie
-                header('Location: /dashboard.php');
-                exit; // Terminer le script après redirection
-            }
-        } else {
-            // Création de la session pour l'apprenant
-            $_SESSION['user_id'] = $user['ID_APPRENANT']; // ID de l'apprenant
-            $_SESSION['role'] = 'apprenant'; // Rôle
-            
-            // Redirection vers la page dashboard après connexion réussie
-            header('Location: /dashboard.php');
-            exit; // Terminer le script après redirection
-        }
+        // Si les identifiants sont incorrects
+        $error = "Login ou mot de passe incorrect.";
     }
 }
 ?>
@@ -81,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="password" id="password" name="password" class="form-control" required>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Se Connecter</button>
+                <button type="submit" class="btn btn-warning text-white ">Se Connecter</button>
             </form>
         </div>
     </div>

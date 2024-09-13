@@ -13,7 +13,7 @@
     $(document).ready(function() {
         $('.welcome-card').css('opacity', 0).animate({opacity: 1}, 1500); 
         $('.card-table').css('opacity', 0).delay(500).animate({opacity: 1}, 1500); 
-        $('.btn').css('opacity', 0).delay(1000).animate({opacity: 1}, 1500);
+        // $('.btn').css('opacity', 0).delay(1000).animate({opacity: 1}, 1500);
     });
 </script>
 

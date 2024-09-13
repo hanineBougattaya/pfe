@@ -22,9 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $adresse = trim($_POST['adresse']);
     $telephone = trim($_POST['telephone']);
     $email = trim($_POST['email']);
-    $login = trim($_POST['login']);
     $date_embauche = $_POST['date_embauche'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // Validation des champs
     if (!preg_match("/^[a-zA-Z\s]+$/", $nom)) {
@@ -45,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($errors)) {
         // Requête pour insérer un moniteur
-        $query = $pdo->prepare("INSERT INTO moniteur (Nom, Prenom, Date_Naissance, Adresse, Telephone, Email, Login, Date_Embauche, Password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $query->execute([$nom, $prenom, $date_naissance, $adresse, $telephone, $email, $login, $date_embauche, $password]);
+        $query = $pdo->prepare("INSERT INTO moniteur (Nom, Prenom, Date_Naissance, Adresse, Telephone, Email, Date_Embauche) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $query->execute([$nom, $prenom, $date_naissance, $adresse, $telephone, $email, $date_embauche]);
 
         $message = "Moniteur ajouté avec succès.";
     }
@@ -101,18 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="email" name="email" id="email" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="login">Login :</label>
-                    <input type="text" name="login" id="login" class="form-control" required>
-                </div>
-                <div class="form-group">
                     <label for="date_embauche">Date d'Embauche :</label>
                     <input type="date" name="date_embauche" id="date_embauche" class="form-control" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mot de Passe :</label>
-                    <input type="password" name="password" id="password" class="form-control" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg w-100">Ajouter Moniteur</button>
+                <button type="submit" class="btn btn-warning text-white  btn-lg w-100">Ajouter Moniteur</button>
             </form>
         </div>
     </div>

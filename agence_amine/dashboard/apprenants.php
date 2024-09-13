@@ -68,7 +68,7 @@ try {
                                 <td><?= htmlspecialchars($apprenant['Telephone']); ?></td>
                                 <td><?= htmlspecialchars($apprenant['Email']); ?></td>
                                 <td>
-                                    <a href="/dashboard/apprenants/modifier_apprenant.php?id=<?= urlencode($apprenant['ID_APPRENANT']); ?>" class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="/dashboard/apprenants/modifier_apprenant.php?id=<?= urlencode($apprenant['ID_APPRENANT']); ?>" class="btn btn-warning text-white  btn-sm">Modifier</a>
                                     <a href="/dashboard/apprenants.php?delete=<?= urlencode($apprenant['ID_APPRENANT']); ?>" onclick="return confirm('Êtes-vous sûr ?')" class="btn btn-danger btn-sm">Supprimer</a>
                                 </td>
                             </tr>

@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <label for="password" class="form-label">Mot de Passe :</label>
                                 <input type="password" name="password" id="password" class="form-control" required>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100">Ajouter</button>
+                            <button type="submit" class="btn btn-warning text-white  btn-lg w-100">Ajouter</button>
                         </form>
                     </div>
                 </div>

@@ -36,7 +36,7 @@ $services = $query->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <h2 class="section-title text-center mb-4">Réservez Votre Cours</h2>
     <div class="text-center">
-        <a href="reserver_cours.php" class="btn btn-primary mb-4">Réserver votre premier cours</a>
+        <a href="reserver_cours.php" class="btn btn-warning text-white  mb-4">Réserver votre premier cours</a>
     </div>
 </main>
 

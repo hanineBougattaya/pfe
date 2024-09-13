@@ -40,7 +40,7 @@ include 'includes/navbar.php';
         </div>
     </div>
     <div class="text-center">
-        <a href="reserver_cours.php" class="btn btn-primary mb-4">Réserver votre premier cours</a>
+        <a href="reserver_cours.php" class="btn btn-warning text-white  mb-4">Réserver votre premier cours</a>
     </div>
 </main>
 <?php include 'includes/footer.php'; ?>

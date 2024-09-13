@@ -13,10 +13,10 @@ $id_reservation = $_GET['id'] ?? null;
 
 if ($id_reservation) {
     // Mettre à jour la réservation pour indiquer qu'elle a été acceptée
-    $query = $pdo->prepare("UPDATE reservation SET STATUT = 'acceptée' WHERE ID_RESERVATION = ?");
+    $query = $pdo->prepare("UPDATE reservation SET STATUT = 'Acceptée' WHERE ID_RESERVATION = ?");
     $query->execute([$id_reservation]);
 }
 
-header('Location: /dashboard.php'); // Redirection après traitement
+header('Location: /dashboard/reservations.php'); // Redirection après traitement
 exit;
 ?>

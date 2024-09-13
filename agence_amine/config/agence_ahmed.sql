@@ -32,15 +32,13 @@ CREATE TABLE IF NOT EXISTS `apprenant` (
   `Telephone` varchar(15) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Date_Inscription` date NOT NULL,
-  `login` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_APPRENANT`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table `apprenant`
 
-INSERT INTO `apprenant` (`ID_APPRENANT`, `Nom`, `Prenom`, `Date_Naissance`, `Adresse`, `Telephone`, `Email`, `Date_Inscription`, `login`, `password`) VALUES
-(1, 'hbez', 'gho', '2024-09-25', 'ghucuxch', 'chv', 'vhvhghgchc@jv.com', '2024-09-05', 'admin', '$2y$10$d5kz4QuxKvxGIVTe1zof3O220NUo5dyLe3.J2YgissGifK6CM2QS2');
+INSERT INTO `apprenant` (`ID_APPRENANT`, `Nom`, `Prenom`, `Date_Naissance`, `Adresse`, `Telephone`, `Email`, `Date_Inscription`) VALUES
+(1, 'Ben Ali', 'Ahmed', '1985-12-15', '12 Avenue Habib Bourguiba, Tunis', '+21612345678', 'ahmed.benali@example.tn', '2024-09-05');
 
 -- --------------------------------------------------------
 
@@ -53,6 +51,12 @@ CREATE TABLE IF NOT EXISTS `cours` (
   `DESCRIPTION` text,
   PRIMARY KEY (`ID_COURS`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table `cours`
+
+INSERT INTO `cours` (`ID_COURS`, `NOM_COURS`, `DESCRIPTION`) VALUES
+(1, 'Conduite Moto', 'Cours pour apprendre la conduite des motos.'),
+(2, 'Code de la Route', 'Cours sur les règles de conduite et les lois de la route.');
 
 -- --------------------------------------------------------
 
@@ -71,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
 -- Dumping data for table `messages`
 
 INSERT INTO `messages` (`id`, `name`, `email`, `message`, `date`) VALUES
-(1, 'jhe', 'hezvjehv@yahoo.com', 'ezbkfbkjbkbkekf', '2024-09-06 15:02:53');
+(1, 'Khaled', 'khaled.benali@example.tn', 'Bonjour, je suis intéressé par les cours.', '2024-09-06 15:02:53');
 
 -- --------------------------------------------------------
 
@@ -87,16 +91,13 @@ CREATE TABLE IF NOT EXISTS `moniteur` (
   `Telephone` varchar(15) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Date_Embauche` date DEFAULT NULL,
-  `login` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`ID_MONITEUR`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table `moniteur`
 
-INSERT INTO `moniteur` (`ID_MONITEUR`, `Nom`, `Prenom`, `Date_Naissance`, `Adresse`, `Telephone`, `Email`, `Date_Embauche`, `login`, `password`) VALUES
-(1, 'ahmed', 'ahmed', '2024-09-27', 'rades', '11244432', 'RVFE@ZBZEIFVB.com', NULL, 'rehkbak', '$2y$10$IZKsXV3ns49EfH6ROnoMC.cgEgUp4hpxrAee/3ynXtGEgv2Vaqb3.'),
-(2, 'ahmed', 'ahmed', '2024-09-27', 'rades', '11244432', 'RVFE@ZBZEIFVB.com', '2024-09-22', 'rehkbak', '$2y$10$uQtqS/29J1/wtRRJRIv1nuGJBynjtpUrcI6tQ/TmZpg38RCrngF/a');
+INSERT INTO `moniteur` (`ID_MONITEUR`, `Nom`, `Prenom`, `Date_Naissance`, `Adresse`, `Telephone`, `Email`, `Date_Embauche`) VALUES
+(1, 'Khalil', 'Mohamed', '1978-04-10', '20 Rue de la Liberté, Tunis', '+21687654321', 'mohamed.khalil@example.tn', '2024-09-01');
 
 -- --------------------------------------------------------
 
@@ -112,6 +113,8 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `PRIX_TOTAL` decimal(10,2) DEFAULT NULL,
   `ID_APPRENANT` int(11) DEFAULT NULL,
   `STATUT` enum('En attente','Acceptée','Refusée') DEFAULT 'En attente',
+  `STATUT_PAIEMENT` enum('Non payé','Payé') DEFAULT 'Non payé',
+  `REMARQUES` text DEFAULT NULL,
   PRIMARY KEY (`ID_RESERVATION`),
   KEY `ID_COURS` (`ID_COURS`),
   KEY `ID_MONITEUR` (`ID_MONITEUR`),
@@ -120,24 +123,9 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 
 -- Dumping data for table `reservation`
 
-INSERT INTO `reservation` (`ID_RESERVATION`, `ID_COURS`, `DATE_RESERVATION`, `HEURES`, `ID_MONITEUR`, `PRIX_TOTAL`, `ID_APPRENANT`, `STATUT`) VALUES
-(1, NULL, '2024-09-21', 123, 1, '2460.00', 1, 'En attente'),
-(2, 1, '2024-09-14', 122, 1, '2440.00', 1, 'En attente'),
-(3, 1, '2024-09-19', 12, 1, '240.00', NULL, 'En attente');
-
--- --------------------------------------------------------
-
--- Table structure for table `reservation_cours`
-
-DROP TABLE IF EXISTS `reservation_cours`;
-CREATE TABLE IF NOT EXISTS `reservation_cours` (
-  `ID_RESERVATION_COURS` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_RESERVATION` int(11) NOT NULL,
-  `ID_COURS` int(11) NOT NULL,
-  PRIMARY KEY (`ID_RESERVATION_COURS`),
-  KEY `ID_RESERVATION` (`ID_RESERVATION`),
-  KEY `ID_COURS` (`ID_COURS`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `reservation` (`ID_RESERVATION`, `ID_COURS`, `DATE_RESERVATION`, `HEURES`, `ID_MONITEUR`, `PRIX_TOTAL`, `ID_APPRENANT`, `STATUT`, `STATUT_PAIEMENT`, `REMARQUES`) VALUES
+(1, 1, '2024-09-21', 1, 1, '150.00', 1, 'En attente', 'Non payé', 'Besoin de confirmer la disponibilité.'),
+(2, 2, '2024-09-14', 2, 1, '200.00', 1, 'Acceptée', 'Payé', 'Réservation confirmée.');
 
 -- --------------------------------------------------------
 
@@ -154,15 +142,17 @@ CREATE TABLE IF NOT EXISTS `service_moto` (
   PRIMARY KEY (`ID_moto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Insert sample data into the `service_moto` table
+-- Insert data into the `service_moto` table
 INSERT INTO `service_moto` (`Type_moto`, `Marque`, `Modele`, `Immatriculation`, `Prix`) VALUES
-('Sportive', 'Yamaha', 'YZF-R1', 'AB123CD', 1700.00),
-('Cruiser', 'Harley-Davidson', 'Iron 883', 'EF456GH', 800.00),
-('Touring', 'Honda', 'Gold Wing', 'IJ789KL', 1200.00),
-('Custom', 'Kawasaki', 'Vulcan S', 'MN012OP', 1000.00),
-('Scooter', 'Piaggio', 'Vespa GTS', 'QR345ST', 800.00);
+('Sportive', 'Yamaha', 'YZF-R1', '1234AB', 1700.00),
+('Cruiser', 'Harley-Davidson', 'Iron 883', '5678CD', 800.00),
+('Touring', 'Honda', 'Gold Wing', '9101EF', 1200.00),
+('Custom', 'Kawasaki', 'Vulcan S', '1122GH', 1000.00),
+('Scooter', 'Piaggio', 'Vespa GTS', '3344IJ', 800.00);
 
 -- --------------------------------------------------------
+
+-- Table structure for table `vehicule`
 
 -- Table structure for table `vehicule`
 
@@ -175,6 +165,17 @@ CREATE TABLE IF NOT EXISTS `vehicule` (
   `Immatriculation` varchar(15) NOT NULL,
   PRIMARY KEY (`ID_VEHICULE`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- Insert sample data into the `vehicule` table
+INSERT INTO `vehicule` (`Type_Vehicule`, `Marque`, `Modele`, `Immatriculation`) VALUES
+('Moto', 'Honda', 'CBR 500R', 'TUN-001'),
+('Moto', 'Yamaha', 'YZF-R3', 'TUN-002'),
+('Moto', 'Kawasaki', 'Ninja 400', 'TUN-003'),
+('Moto', 'Suzuki', 'GSX-R600', 'TUN-004'),
+('Scooter', 'Yamaha', 'NMAX 155', 'TUN-005'),
+('Scooter', 'Piaggio', 'Vespa GTS 300', 'TUN-006'),
+('Scooter', 'Honda', 'SH 125i', 'TUN-007'),
+('Scooter', 'Kymco', 'Like 125', 'TUN-008');
 
 COMMIT;
 
