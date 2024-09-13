@@ -1,8 +1,8 @@
 <?php
 $title = "Ajouter un Véhicule"; 
-include 'includes/header.php'; 
-include 'config/db.php';
-include 'includes/navbar.php'; 
+include '../../includes/header.php'; 
+include '../../config/db.php';
+include '../../includes/navbar.php'; 
 
 // Assurez-vous que l'utilisateur est connecté et a le rôle approprié
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
@@ -40,7 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-
+<header class="text-center">
+    <h1>Ajouter un Moto</h1>
+    <a href="/dashboard/vehicules.php" class="btn btn-light">Retour au la liste des motos</a>
+</header>
 <div class="container">
     <h1>Ajouter un Moto</h1>
     <div class="form-container">
@@ -71,4 +74,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 </div>
-<?php include 'includes/footer.php'; ?>
+<?php include '../../includes/footer.php'; ?>

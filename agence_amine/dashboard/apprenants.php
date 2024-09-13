@@ -32,15 +32,15 @@ try {
     <h1>Gérer les Apprenants</h1>
 </header>
 <main class="container my-5">
-    <div class="welcome-card">
+    <div class="welcome-card mb-4 p-3 border rounded">
         <p>Voici la liste des apprenants. Vous pouvez ajouter, modifier ou supprimer des apprenants à partir de cette page.</p>
     </div>
     <div class="card-table">
         <h2 class="mb-4">Liste des Apprenants</h2>
-        <a href="/dashboard/utils/ajouter_apprenant.php" class="btn btn-success mb-3">Ajouter un Apprenant</a>
+        <a href="/dashboard/apprenants/ajouter_apprenant.php" class="btn btn-success mb-3">Ajouter un Apprenant</a>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
+                <thead style="background-color: #ffc107; color: #ffffff;">
                     <tr>
                         <th>ID</th>
                         <th>Nom</th>
@@ -68,7 +68,7 @@ try {
                                 <td><?= htmlspecialchars($apprenant['Telephone']); ?></td>
                                 <td><?= htmlspecialchars($apprenant['Email']); ?></td>
                                 <td>
-                                    <a href="/dashboard/utils/modifier_apprenant.php?id=<?= urlencode($apprenant['ID_APPRENANT']); ?>" class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="/dashboard/apprenants/modifier_apprenant.php?id=<?= urlencode($apprenant['ID_APPRENANT']); ?>" class="btn btn-warning btn-sm">Modifier</a>
                                     <a href="/dashboard/apprenants.php?delete=<?= urlencode($apprenant['ID_APPRENANT']); ?>" onclick="return confirm('Êtes-vous sûr ?')" class="btn btn-danger btn-sm">Supprimer</a>
                                 </td>
                             </tr>

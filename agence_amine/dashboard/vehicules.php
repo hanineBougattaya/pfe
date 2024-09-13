@@ -37,10 +37,10 @@ try {
     </div>
     <div class="card-table">
         <h2 class="mb-4">Liste des Véhicules</h2>
-        <a href="ajouter_vehicule.php" class="btn btn-success mb-3">Ajouter un Véhicule</a>
+        <a href="/dashboard/vehicules/ajouter_vehicule.php" class="btn btn-success mb-3">Ajouter un Véhicule</a>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
+                <thead style="background-color: #ffc107; color: #ffffff;">
                     <tr>
                         <th>ID</th>
                         <th>Type</th>
@@ -64,8 +64,8 @@ try {
                                 <td><?= htmlspecialchars($vehicule['Modele']); ?></td>
                                 <td><?= htmlspecialchars($vehicule['Immatriculation']); ?></td>
                                 <td>
-                                    <a href="modifier_vehicule.php?id=<?= urlencode($vehicule['ID_VEHICULE']); ?>" class="btn btn-warning btn-sm">Modifier</a>
-                                    <a href="vehicules.php?delete=<?= urlencode($vehicule['ID_VEHICULE']); ?>" onclick="return confirm('Êtes-vous sûr ?')" class="btn btn-danger btn-sm">Supprimer</a>
+                                    <a href="/dashboard/vehicules/modifier_vehicule.php?id=<?= urlencode($vehicule['ID_VEHICULE']); ?>" class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="/dashboard/vehicules.php?delete=<?= urlencode($vehicule['ID_VEHICULE']); ?>" onclick="return confirm('Êtes-vous sûr ?')" class="btn btn-danger btn-sm">Supprimer</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

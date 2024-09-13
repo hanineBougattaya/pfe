@@ -5,11 +5,13 @@ include 'includes/navbar.php';
 
 ?>
 
-<header>
-    Agence Ahmed - Spécialiste en Apprentissage de la Moto
+
+<header class="text-center mb-4">
+    <h1 class="section-title text-center mb-4">À propos de l'Agence Ahmed</h1>
+    <p> Agence Ahmed - Spécialiste en Apprentissage de la Moto.</p>
 </header>
 <main class="container">
-    <h1>À propos de l'Agence Ahmed</h1>
+    <h1>Agence Ahmed</h1>
     <p>
         Bienvenue à l'Agence Ahmed, votre auto-école spécialisée dans l'apprentissage de la conduite de moto. Depuis plusieurs années, nous accompagnons nos élèves avec passion et professionnalisme pour les aider à maîtriser la conduite sur deux roues et obtenir leur permis moto en toute sécurité.
     </p>
@@ -36,6 +38,9 @@ include 'includes/navbar.php';
                 Chaque élève est unique. C'est pourquoi nous adaptons nos méthodes d'apprentissage en fonction de vos besoins et de votre progression. Notre objectif est de vous voir réussir à votre rythme.
             </p>
         </div>
+    </div>
+    <div class="text-center">
+        <a href="reserver_cours.php" class="btn btn-primary mb-4">Réserver votre premier cours</a>
     </div>
 </main>
 <?php include 'includes/footer.php'; ?>

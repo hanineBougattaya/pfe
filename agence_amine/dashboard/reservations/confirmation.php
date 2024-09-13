@@ -1,11 +1,11 @@
 <?php
 $title = "Confirmation de Réservation"; 
-include 'includes/header.php'; 
-include 'includes/navbar.php'; 
-include 'config/db.php';
+include '../../includes/header.php'; 
+include '../../includes/navbar.php'; 
+include '../../config/db.php';
 // Vérification si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
-    header('Location: auth/login.php');
+    header('Location: /auth/login.php');
     exit;
 }
 
@@ -40,7 +40,7 @@ try {
 
 <header class="bg-warning text-white text-center py-3">
     <h1>Confirmation de Réservation</h1>
-    <a href="index.php" class="btn btn-light">Retour à l'accueil</a>
+    <a href="/index.php" class="btn btn-light">Retour à l'accueil</a>
 </header>
 <div class="container my-4">
     <div class="card">
@@ -57,4 +57,4 @@ try {
         </div>
     </div>
 </div>
-<?php include 'includes/footer.php'; ?>
+<?php include '../../includes/footer.php'; ?>

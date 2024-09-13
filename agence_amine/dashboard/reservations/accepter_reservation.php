@@ -1,10 +1,10 @@
 <?php
 session_start();
-include 'config/db.php';
+include '../../config/db.php';
 
 // Vérification si l'utilisateur est connecté et est un administrateur
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    header('Location: login.php');
+    header('Location: /auth/login.php');
     exit;
 }
 
@@ -17,6 +17,6 @@ if ($id_reservation) {
     $query->execute([$id_reservation]);
 }
 
-header('Location: dashboard.php'); // Redirection après traitement
+header('Location: /dashboard.php'); // Redirection après traitement
 exit;
 ?>

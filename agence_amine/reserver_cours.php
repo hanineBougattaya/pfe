@@ -1,15 +1,8 @@
 <?php
 $title = "Réserver un Cours"; //
-include '../includes/header.php'; 
-include '../config/db.php'; // Connexion à la base de données
-include '../includes/navbar.php'; 
-
-
-// Vérification si l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
-    header('Location: auth/login.php');
-    exit;
-}
+include 'includes/header.php'; 
+include 'config/db.php'; // Connexion à la base de données
+include 'includes/navbar.php'; 
 
 
 // Récupération des moniteurs pour le formulaire
@@ -39,8 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
-
 
 <header class="bg-warning text-white text-center py-3">
     <h1>Réserver un Cours</h1>

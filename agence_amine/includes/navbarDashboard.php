@@ -9,7 +9,7 @@ $navItems = [
     '/dashboard/moniteurs.php' => 'Gérer les Moniteurs',
     '/dashboard/vehicules.php' => 'Gérer les motos',
     '/dashboard/reservations.php' => 'Gérer les Réservations',
-    '/dashboard/contact_messages.php' => 'Messages de Contact'
+    '/dashboard/messages.php' => 'Messages de Contact'
 ];
 ?>
 
